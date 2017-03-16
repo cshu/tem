@@ -1,0 +1,1 @@
+convert white.png -transparent white out.png

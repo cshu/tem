@@ -1,0 +1,4 @@
+Add line feed for languages using curly bracket and semicolon (e.g. powershell)
+(;|\{|\})\s*
+\1\n
+

@@ -1,0 +1,6 @@
+--convert base64 string to the varchar2 content
+utl_raw.cast_to_varchar2(utl_encode.base64_decode(utl_raw.cast_to_raw('cGFzc3dvcmQx')))
+
+--show primary keys of tables
+select cols.table_name,cols.column_name from user_cons_columns cols join all_constraints cons on cons.constraint_name = cols.constraint_name where cons.constraint_type = 'P';
+

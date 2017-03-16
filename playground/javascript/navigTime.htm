@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<script type="text/javascript">
+// Add load event listener.
+window.addEventListener("load", loadTime, false);
+
+function loadTime() {
+  // Get current time.
+  var now = new Date().getTime();
+  // Calculate page load time.
+  var page_load_time = now - performance.timing.navigationStart;
+  // Write the load time to the F12 console.
+  //if (window.console)
+console.log(page_load_time);
+console.log(performance.timing.navigationStart);
+console.log(now);
+}
+ </script>
+</head><body>
+Main page body is here
+</body>
+</html>
