@@ -1,0 +1,3 @@
+#IfWinNotActive, ahk_class SWT_Window0
+NumLock::Send ^c
+ScrollLock::Send ^v
