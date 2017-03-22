@@ -1,5 +1,8 @@
 common gcc options:
 -pedantic-errors -Wall -Wextra -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wstrict-aliasing=2 -Wold-style-definition -Wredundant-decls -Wlogical-op -Wunreachable-code -Wundef -Winline -Wbad-function-cast -Wcast-align -Wno-unused-function -Wno-unused-parameter -Wmisleading-indentation -O2 -Wall -std=c11
 
+debug:
+-fsanitize=undefined -fno-sanitize-recover
+
 some gcc options for shared library:
 -fPIC (not -fpic)

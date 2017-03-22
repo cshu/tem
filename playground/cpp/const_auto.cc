@@ -17,4 +17,9 @@ int main(void){
 	static_assert(std::is_same<decltype(co),const char *>::value,"st");
 	assert(co==pco);
 	static_assert(std::is_same<decltype(co_c),char>::value,"st");
+	char *pch;
+	const auto ccho=pch;
+	const auto *cpcho=pch;
+	static_assert(std::is_same<decltype(ccho),char * const>::value,"st");
+	static_assert(std::is_same<decltype(cpcho),const char *>::value,"st");
 }
