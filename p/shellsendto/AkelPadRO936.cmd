@@ -1,0 +1,1 @@
+start C:\EXTRACTEDF\ProgFiles\AkelPad-4.9.6-x64-bin-eng\AkelPad.exe /Command(4216) /OpenFile("%~1", 936, -1)

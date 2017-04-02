@@ -1,0 +1,18 @@
+git config --global --list
+git config --list
+git config --global credential.helper store
+git config --global credential.helper wincred
+git config --unset blabla
+git config --global --unset blabla
+git status
+git log
+
+#how to start from scratch
+git init
+git remote add origin https://bb.com/bb.git
+
+git remove -v
+git remote set-url origin https://bb.com/bb.git
+
+#how to discard all local commits
+git reset --hard origin/master

@@ -25,6 +25,7 @@ void oio(uint_least16_t cc){
 }
 
 int main(void){
+	std::cout<<std::is_same<int,int32_t>::value<<'\n';
 	std::cout<<std::is_same<char16_t,uint_least16_t>::value;
 	oio((char16_t)12);
 	oio((uint_least16_t)12);

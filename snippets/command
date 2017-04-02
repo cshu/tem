@@ -1,1 +1,2 @@
 convert white.png -transparent white out.png
+tree -o index.html -H .

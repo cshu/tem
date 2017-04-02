@@ -1,0 +1,1 @@
+start C:\EXTRACTEDF\ProgFiles\locate32_x64-3.1.11.7100\locate32.exe -u -P %1
