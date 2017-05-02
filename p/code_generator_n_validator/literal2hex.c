@@ -32,7 +32,7 @@ SET_PEND_MALLOC_PVOID_WITH_PEND_CAs(generated.,codeLen,{LOG_ERROR_LITERALs("mall
 {
 	char *newFilenameStr = IMPLICIT_STATIC_CAST(char *,malloc(strlen(L_FILENAMESTR)+sizeof LITERAL_APPENDED_TO_FILENAME));
 	if(NULL==newFilenameStr){LOG_ERROR_LITERALs("malloc failed") goto fail_free_generatedStr;}
-	EXPAND_TO_FUNC_N_ARGS(MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDEDu,cpyHead_,generated.,LITERAL_COMMA_LEN(LITERAL_THIS_IS_A_GENERATED_FILE),AT_LEAST_ONE_N_HALF_OF__B_PLUS_C__AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("malloc failed") goto fail_free;},)
+	EXPAND_TO_FUNC_N_ARGS(MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDEDu,cpyHead_,generated.,LITERAL_COMMA_LEN(LITERAL_THIS_IS_A_GENERATED_FILE),AT_LEAST_ONE_N_HALF_OF_s_B_PLUS_C_s_AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("malloc failed") goto fail_free;},)
 	{
 		char *savePoint = IMPLICIT_STATIC_CAST(char *,generated.pend);
 #	define BEGINNINGOFLINE "#define"
@@ -54,23 +54,23 @@ SET_PEND_MALLOC_PVOID_WITH_PEND_CAs(generated.,codeLen,{LOG_ERROR_LITERALs("mall
 			size_t lenOfId = strspn(pStr,LITERAL_0to9_AtoZ_atoz "_");
 			if(!lenOfId) goto start_search;
 #		define LITERAL_APPENDED_TO_ID "_LITERAL2HEX \""
-			EXPAND_TO_FUNC_N_ARGS(MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDEDu,cpyDefine_,generated.,LITERAL_COMMA_LEN("#define "),AT_LEAST_ONE_N_HALF_OF__B_PLUS_C__AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("mem alloc failed") goto fail_free;},)
-			MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDED_N_SET_SOURCE_PTRu(cpyIdentifier_,generated.,pStr,lenOfId,AT_LEAST_ONE_N_HALF_OF__B_PLUS_C__AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("mem alloc failed") goto fail_free;},)
-			EXPAND_TO_FUNC_N_ARGS(MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDEDu,cpySuffix_,generated.,LITERAL_COMMA_LEN(LITERAL_APPENDED_TO_ID),AT_LEAST_ONE_N_HALF_OF__B_PLUS_C__AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("mem alloc failed") goto fail_free;},)
+			EXPAND_TO_FUNC_N_ARGS(MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDEDu,cpyDefine_,generated.,LITERAL_COMMA_LEN("#define "),AT_LEAST_ONE_N_HALF_OF_s_B_PLUS_C_s_AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("mem alloc failed") goto fail_free;},)
+			MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDED_N_SET_SOURCE_PTRu(cpyIdentifier_,generated.,pStr,lenOfId,AT_LEAST_ONE_N_HALF_OF_s_B_PLUS_C_s_AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("mem alloc failed") goto fail_free;},)
+			EXPAND_TO_FUNC_N_ARGS(MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDEDu,cpySuffix_,generated.,LITERAL_COMMA_LEN(LITERAL_APPENDED_TO_ID),AT_LEAST_ONE_N_HALF_OF_s_B_PLUS_C_s_AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("mem alloc failed") goto fail_free;},)
 			pStr+=strspn(pStr," \t");
 			if(*pStr!='\"') continue;
 			pStr++;
 			for(;;){
 				if(*pStr!='\\'){
 					if(*pStr!='\"') break;
-					EXPAND_TO_FUNC_N_ARGS(MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDEDu,cpyLF_,generated.,LITERAL_COMMA_LEN("\"\n"),AT_LEAST_ONE_N_HALF_OF__B_PLUS_C__AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("mem alloc failed") goto fail_free;},)
+					EXPAND_TO_FUNC_N_ARGS(MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDEDu,cpyLF_,generated.,LITERAL_COMMA_LEN("\"\n"),AT_LEAST_ONE_N_HALF_OF_s_B_PLUS_C_s_AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("mem alloc failed") goto fail_free;},)
 					savePoint=IMPLICIT_STATIC_CAST(char *,generated.pend); pStr++; goto start_search;
 				}
 				pStr++;
 				if(*pStr!='x') break;
 				pStr++;
 				if(!isxdigit(pStr[0]) || !isxdigit(pStr[1])) break;
-				MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDED_N_SET_SOURCE_PTRu(cpyByt_,generated.,pStr,2,AT_LEAST_ONE_N_HALF_OF__B_PLUS_C__AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("mem alloc failed") goto fail_free;},)//todo you might want to use tolower/toupper for only one case(lower/upper), though it's probably not important bc once your .h file is generated, all programs use the same .h file so case doesn't matter
+				MEMCPY_TO_THE_END_OF_PVOID_WITH_PEND_CA_N_REALLOC_IF_NEEDED_N_SET_SOURCE_PTRu(cpyByt_,generated.,pStr,2,AT_LEAST_ONE_N_HALF_OF_s_B_PLUS_C_s_AS_MULTIPLE_OF_D,sizeof(char),{LOG_ERROR_LITERALs("mem alloc failed") goto fail_free;},)//todo you might want to use tolower/toupper for only one case(lower/upper), though it's probably not important bc once your .h file is generated, all programs use the same .h file so case doesn't matter
 			}
 		}
 

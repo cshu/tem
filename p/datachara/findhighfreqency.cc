@@ -49,7 +49,7 @@ int main(int argc, char **argv){
 				startofmemmem:
 				UNSAFE_MEMMEMs(res,reloc,endloc-reloc,sese,lenofse,{},{
 					++counter;
-					reloc=res+1;
+					reloc=res;
 					if(endloc-reloc>=lenofse)
 						goto startofmemmem;
 				})
