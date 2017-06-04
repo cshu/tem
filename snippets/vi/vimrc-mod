@@ -1,2 +1,4 @@
-set enc=utf-8
-set nocompatible
+se ai
+se enc=utf-8
+se nocompatible
+se clipboard=unnamedplus

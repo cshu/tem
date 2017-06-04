@@ -14,7 +14,7 @@ int main(int argc, char **argv){
 #define MAXLENOFSE 0x200
 		if(argc<3)return 1;
 		if(!argv[1])return 1;
-		auto lenofse=stoul(argv[1]);
+		auto lenofse=stol(argv[1]);//stoul can be used but not there is comparison between signed and unsigned warning
 		if(lenofse<2||lenofse>=MAXLENOFSE)return 1;
 		auto fsi=getfilesizeusingifstream(argv[2]);
 		//static_assert(std::is_same<decltype(fsi), long long>::value,"");

@@ -4,5 +4,8 @@ common gcc options:
 debug:
 -fsanitize=undefined -fno-sanitize-recover
 
+build shared library:
+gcc -shared -o libx.so -fPIC x.c
+
 some gcc options for shared library:
 -fPIC (not -fpic)

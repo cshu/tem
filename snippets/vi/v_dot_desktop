@@ -1,0 +1,1 @@
+Exec=gvim -f -n -i NONE --noplugin "+colo peachpuff" --remote-silent "+se go= lines=99 co=999 hid" %F

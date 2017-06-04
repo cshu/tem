@@ -6,6 +6,7 @@
 #include <iostream>
 #include <cmath>//? can be removed?
 #include <memory>
+#include <cstring>
 #define XSTR(s) STR(s)
 #define STR(s) #s
 
