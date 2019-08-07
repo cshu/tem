@@ -1,0 +1,4 @@
+#!/bin/sh
+SCR_DIR=$(dirname $0)
+/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar $SCR_DIR/min-java-web-browser.jar
+

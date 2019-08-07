@@ -1,3 +1,5 @@
 #!/bin/sh
-
-exec vim -n -i NONE --noplugin "$@"
+if [ $# -eq 0 ]
+ then gvim -n -i NONE -u NONE "+colo peachpuff" "+se go= lines=99 co=999 hid clipboard=unnamedplus ai enc=utf-8 nocompatible backspace=indent,eol,start" "+syntax on"
+ else gvim -n -i NONE -u NONE "+colo peachpuff" --remote-silent "+se go= lines=99 co=999 hid clipboard=unnamedplus ai enc=utf-8 nocompatible backspace=indent,eol,start" "+syntax on" "$@"
+fi

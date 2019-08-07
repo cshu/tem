@@ -1,0 +1,2 @@
+#!/bin/bash
+(BINDIR="$( dirname "${BASH_SOURCE[0]}" )";$BINDIR/peazip_portable-6.8.1.LINUX.x86_64.GTK2/peazip $(readlink -f "$@"))

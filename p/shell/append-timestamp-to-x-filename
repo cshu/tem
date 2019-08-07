@@ -1,0 +1,2 @@
+#!/bin/sh
+tar -cJf $1.$(date +%Y%m%d%H%M%S).tar.xz $1

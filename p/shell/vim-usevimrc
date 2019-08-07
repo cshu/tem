@@ -1,0 +1,5 @@
+#!/bin/sh
+if [ $# -eq 0 ]
+ then gvim -n -i NONE --noplugin "+colo peachpuff" "+se go= lines=99 co=999 hid clipboard=unnamedplus"
+ else gvim -n -i NONE --noplugin "+colo peachpuff" --remote-silent "+se go= lines=99 co=999 hid clipboard=unnamedplus" "$@"
+fi
