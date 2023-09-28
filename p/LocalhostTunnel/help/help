@@ -1,0 +1,8 @@
+generate key pair:
+openssl req -x509 -newkey rsa:4096 -keyout default_local_key.pem -out default_cert.pem -days 36500
+
+get DER from PEM:
+openssl x509 -outform der -in default_cert.pem -out your-cert.crt
+
+generate (cryptographically secure?) random number:
+openssl rand -hex 32
