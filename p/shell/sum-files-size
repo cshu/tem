@@ -1,0 +1,1 @@
+find . -type f -printf '%s\n' | paste -sd+ | bc
