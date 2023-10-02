@@ -1,0 +1,7 @@
+for za bank, statement is enough become it contains time deposit rows with date range info
+
+but time deposit records can be duplicate! (appear repeatedly on statements of different months)
+
+So you need to collect all records of td. (each one is a tuple of Principal+InterestRate+MaturityDate+MaturityAmount) And you need to do a `union` to remove duplicates for final sum.
+
+Note all dates in za statements seem to follow format of strftime('%d%b%Y')
