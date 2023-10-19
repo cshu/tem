@@ -9,11 +9,11 @@ from os import listdir
 from os.path import isfile
 from datetime import datetime
 
-scr_filename = sys.argv[0]
+scr_filename: str = sys.argv[0]
 if 3!=len(sys.argv):
  raise Exception('Must provide exactly 2 args as range like %Y%m %Y%m (first one inclusive, second one exclusive)')
-begin_month = sys.argv[1]
-end_month = sys.argv[2]
+begin_month: str = sys.argv[1]
+end_month: str = sys.argv[2]
 if len(begin_month)!=6 or len(end_month)!=6:
  raise Exception('Must provide exactly 2 args as range like %Y%m %Y%m (first one inclusive, second one exclusive)')
 
