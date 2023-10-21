@@ -1,0 +1,3 @@
+#!/bin/sh
+#arg can be html, doc, etc.
+libreoffice --headless --convert-to txt:Text "$1"
