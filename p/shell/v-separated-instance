@@ -1,0 +1,2 @@
+#!/bin/sh
+gvim -n -i NONE -u NONE "+colo peachpuff" "+se guifont=Monospace\ 15 go= lines=99 co=999 hid clipboard=unnamedplus hls ai enc=utf-8 nocompatible nu backspace=indent,eol,start" "+syntax on" "$@"
