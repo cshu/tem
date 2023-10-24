@@ -25,6 +25,7 @@ pdfrename: str = tobj['pdfrename']
 outpdf: str = tobj['pdf']
 outdocx: str = tobj['docx']
 chatcl: str = tobj['chatcl']
+chatsummary: str = tobj['chatsummary']
 tdir: str = tobj['tdir']
 ghdir: str = tobj['ghdir']
 cthdir: str = os.path.join(ghdir, 'chat-ai-template-helper')
@@ -100,7 +101,7 @@ for kw in min_kws:
  if kw not in kws:
   kwsstr+=', '+kw
 Path(os.path.join(tdir, 'techstub.txt')).write_text(kwsstr)
-Path(os.path.join(tdir, 'summarystub.txt')).write_text(title+'. Results-oriented IT professional skilled in optimizing and creating systems for high user volumes. Proven expertise in enhancing mobile applications and delivering technological innovation. Ready to bring value to your team. Deep expertise in web technologies, database engines, information security, network programming, multithreaded programming, performance tuning, and cross-platform abstraction. 9+ years of experience in software development. Automation enthusiast, mobile developer. Rustacean, gopher, versatile programmer. ITIL® Foundation Certificate in IT Service Management. PRINCE2® Foundation Certificate in Project Management.')
+Path(os.path.join(tdir, 'summarystub.txt')).write_text(title+'. Results-oriented IT professional skilled in optimizing and creating systems for high user volumes. Proven expertise in enhancing mobile applications and delivering technological innovation. Ready to bring value to your team. Deep expertise in web technologies, database engines, information security, network programming, multithreaded programming, performance tuning, and cross-platform abstraction. 9+ years of experience in software development. Automation enthusiast, mobile developer. Rustacean, gopher, versatile programmer. ITIL® Foundation Certificate in IT Service Management. PRINCE2® Foundation Certificate in Project Management.\n')
 Path(os.path.join(tdir, 'invisiblekeywordsuffix.txt')).write_text(re.sub('\\s+', ' ', txtjobdesc))
 
 subprocess.run(['xclip', '-selection', 'clipboard'], input=company.encode(), check=True)
@@ -109,7 +110,10 @@ cl+=company+'\n'
 if not addrin:
  addrin = subprocess.check_output(['xclip', '-o', '-selection', 'clipboard']).decode()
  addrin = addrin.strip()
- cl+=addrin+'\n'
+ if len(addrin) < 150:
+  cl+=addrin+'\n'
+ else:
+  print('Address INPUT is absurd! Too long! Address ignored.')
 cl+='\nRe: '+title+' position\n\n'
 cl+='Dear '+recruiter+',\n'
 
@@ -119,10 +123,28 @@ Path(text_html_from_xclip_file+'.postingsrc.txt').write_text(postingsrc)
 Path(text_html_from_xclip_file+'.cl.begin.txt').write_text(cl)
 Path(text_html_from_xclip_file+'.cl.end.txt').write_text('\nSincerely,\n\nEric C. Shu')
 
-print('Starting to run the slow part...')
+print('Starting to run the 1st slow part... (summary)')
+subprocess.run(['bin/python', 'main.py', chatsummary], cwd=cthdir, check=True)
+#? open the summary.full.txt in editor? but you do not want sudden popup, so you probably want a input() first, but input will block the following logic, thus still bad
+print('Starting to run the 2nd slow part...')
 subprocess.run(['bin/python', 'main.py', chatcl], cwd=cthdir, check=True)
 subprocess.run(['libreoffice', '--headless', '--convert-to', 'pdf', outdocx], check=True, cwd=tdir)
 shutil.move(outpdf, pdfrename)
 
-subprocess.run(['bin/python', 'main.py', os.path.join(tdir, 'resume.eric.c.shu.docx'), '--rep', rep, '--rep-json', repjson, '--generate-pdf', '--get-pdf-num-of-pages'], cwd=repdir, check=True)
+while True:
+ subprocess.run(['bin/python', 'main.py', os.path.join(tdir, 'resume.eric.c.shu.docx'), '--rep', rep, '--rep-json', repjson, '--generate-pdf', '--get-pdf-num-of-pages'], cwd=repdir, check=True)
+ if input('ENTER empty input for re-generation of resume. ENTER any text to finalize.'):
+  break
+folder = datetime.now().strftime('%Y%m%d%H%M%S')
+subprocess.run('mkdir '+folder, cwd=tdir, shell=True, check=True)
+subprocess.run('cp -p text_html_from_xclip.* '+folder, cwd=tdir, shell=True, check=True)
+subprocess.run('cp -p invisiblekeywordsuffix.txt '+folder, cwd=tdir, shell=True, check=True)
+subprocess.run('cp -p techstub.txt '+folder, cwd=tdir, shell=True, check=True)
+subprocess.run('cp -p summarystub.txt '+folder, cwd=tdir, shell=True, check=True)
+subprocess.run('cp -p summary.middle.txt '+folder, cwd=tdir, shell=True, check=True)
+subprocess.run('cp -p summary.full.txt '+folder, cwd=tdir, shell=True, check=True)
+subprocess.run('cp -p '+pdfrename+' '+folder, cwd=tdir, shell=True, check=True)
+subprocess.run('cp -p '+outdocx+' '+folder, cwd=tdir, shell=True, check=True)
+subprocess.run('cp -p resume.eric.c.shu_new.docx '+folder, cwd=tdir, shell=True, check=True)
+subprocess.run('cp -p resume.eric.c.shu.pdf '+folder, cwd=tdir, shell=True, check=True)
 print('DONE')
