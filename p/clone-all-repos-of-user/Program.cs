@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using System.Diagnostics;
 
 
 //var usernm = Environment.GetCommandLineArgs()[1];
@@ -65,7 +66,7 @@ foreach (var repo in repos)
         continue;
     }
     ++clonecount;
-    var proc = System.Diagnostics.Process.Start("git", "clone https://" + usernm + "@github.com/" + usernm + "/" + rnm);
+    using Process proc = Process.Start("git", "clone https://" + usernm + "@github.com/" + usernm + "/" + rnm);
     proc.WaitForExit();
 }
 Console.WriteLine($"FORK {forkcount}\nCONFLICT {existcount}\nCLONE {clonecount}\nTOTAL {repos.Count}");
