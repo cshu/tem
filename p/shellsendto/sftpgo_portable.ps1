@@ -1,3 +1,5 @@
+$ErrorActionPreference = 'Stop';
+
 cd ~/u/vcs/bb/homestuff/sftpgo_host_key
 echo $args[0]
 $dirToServe = rvpa $args[0]
